@@ -19,11 +19,6 @@ public class Decode extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String k =request.getParameter("k");
-		System.out.println("k1=" + k);
-//		Keys ks = new Keys();
-//		k = ks.bytesToHexString(new BASE64Decoder().decodeBuffer(k));
-		System.out.println("k=" + k);
-//		k = new BASE64Decoder().decodeBuffer(k);
 		HttpSession ses = request.getSession();
 		RSAmodel rsa = (RSAmodel)ses.getAttribute("rsa");
 		String res = "-1";
@@ -32,7 +27,6 @@ public class Decode extends HttpServlet {
 			res = new RsaDao().decode(rsa);
 			ses.removeAttribute("rsa");
 		}
-		System.out.println("dr=" + res);
 		response.getWriter().print(res);
 	}
 
