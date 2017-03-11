@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<title>RSA</title>
 
 <script type="text/javascript" src="http://localhost/js/jquery-3.1.1.min.js"></script>
 
@@ -15,10 +15,10 @@
 <body>
 	<input  id="w" name="w"  />
 	<input  id='i' value="加密" type="button" />
-	<input  id='d' value="揭秘" type="button" /><br>
+	<input  id='d' value="解密" type="button" /><br>
 	密文：
 	<div id="en">等待加密</div>
 	明文：
-	<div id="de">等待揭秘</div>
+	<div id="de">等待解密</div>
 </body>
 </html>
