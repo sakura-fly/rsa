@@ -21,13 +21,13 @@ public class Decode extends HttpServlet {
 		String k =request.getParameter("k");
 		HttpSession ses = request.getSession();
 		RSAmodel rsa = (RSAmodel)ses.getAttribute("rsa");
-		String res = "-1";
+//		String res = "-1";
 		if(rsa != null){
 			rsa.setCiphertext(k);
-			res = new RsaDao().decode(rsa);
+			rsa = new RsaDao().decode(rsa);
 			ses.removeAttribute("rsa");
 		}
-		response.getWriter().print(res);
+		response.getWriter().print(rsa.getCleartext());
 	}
 
 }

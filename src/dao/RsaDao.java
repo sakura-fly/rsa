@@ -26,16 +26,27 @@ public class RsaDao {
 	}
 	
 	
-	public String decode(RSAmodel rsa){
-		String res = null;
+	public RSAmodel decode(RSAmodel rsa){
+		String res = "-1";
 		try {
 			RSAUtils ru = new RSAUtils();
 			res = ru.decrypt(rsa.getCiphertext(), rsa.getPrik());
+			rsa.setCleartext(res);
 		} catch (Exception e) {
 			e.printStackTrace();
 			res = "";
 		}
-		return res;
+		return rsa;
+	}
+	
+	public RSAmodel encode(RSAmodel rsa){
+		try {
+			RSAUtils ru = new RSAUtils();
+			rsa.setCiphertext(ru.encrypt(rsa.getCleartext(), rsa.getPuk()));;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rsa;
 	}
 	
 }
